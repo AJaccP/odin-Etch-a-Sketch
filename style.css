@@ -1,0 +1,35 @@
+:root {
+    --colNum: 16;
+}
+
+* {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #03001C;
+}
+
+#heading, #instructions {
+    color: #B6EADA;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+#instructions {
+    font-size: 24px;
+}
+
+#gridContainer {
+    display: grid;
+    grid-template-columns: repeat(var(--colNum), auto);
+    background-color: #eeeeee;
+    width: 80vh;
+    min-height: 80vh;
+}
+
+.gridBox {
+    border: 1px solid #03001C;
+}
+
