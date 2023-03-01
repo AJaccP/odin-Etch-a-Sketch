@@ -17,11 +17,16 @@
 
         <div id = "buttons">
             <button class = "button" id = "clearButton">Clear Grid</button>                        
-            <button class = "button" id = "gridSizeButton">Change Grid Size</button>
+            <div class = "button" id = "gridSize">
+                <label for = "size">Change Size (8 to 64)</label><br>
+                <input type = "range" id = "sizeInput" name = "size" min = "8" max = "64" value = "16"><br>
+            </div>
             <button class = "button" id = "greyscaleButton">Greyscale</button>
             <button class = "button" id = "randomColorButton">Random Color</button>
             <button class = "button" id = "rainbowButton">Rainbow</button>
-            <div class = "button" id = "colorSelectButton">Select Color: <input type = "color" id = "colorSelect" value = "#5B8FB9"></div>
+            <div class = "button" id = "colorSelectButton">
+                <label for = "color">Select Color: </label>
+                <input type = "color" id = "colorSelect" value = "#5B8FB9"></div>
             <button class = "button" id = "eraserButton">Eraser</button>
         </div>        
 

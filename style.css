@@ -53,6 +53,15 @@ body {
     min-height: 80vh;
 }
 
+#sizeInput {
+    width: 100%;
+}
+
+#colorSelectButton {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .gridBox {
     border: 1px solid #03001C;
 }

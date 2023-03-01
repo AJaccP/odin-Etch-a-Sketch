@@ -6,6 +6,7 @@ const colorSelectInput = document.querySelector('#colorSelect');
 const greyscaleButton = document.querySelector('#greyscaleButton');
 const randomColorButton = document.querySelector('#randomColorButton');
 const rainbowButton = document.querySelector('#rainbowButton');
+const sizeInput = document.querySelector('#sizeInput');
 
 let gridSize = 16;
 
@@ -103,4 +104,15 @@ rainbowButton.addEventListener('click', () => {
 
 randomColorButton.addEventListener('click', () => {
     draw(randomColor());
+})
+
+function deleteGrid() {
+    while (gridContainer.firstChild) {
+        gridContainer.removeChild(gridContainer.lastChild);
+    }
+}
+
+sizeInput.addEventListener('input', () => {
+    deleteGrid();
+    createGrid(sizeInput.value);
 })
