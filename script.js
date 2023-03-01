@@ -7,6 +7,7 @@ const greyscaleButton = document.querySelector('#greyscaleButton');
 const randomColorButton = document.querySelector('#randomColorButton');
 const rainbowButton = document.querySelector('#rainbowButton');
 const sizeInput = document.querySelector('#sizeInput');
+const sizeValue = document.querySelector('#sizeValue');
 
 let gridSize = 16;
 
@@ -24,6 +25,7 @@ function createGrid(size) {
 }
 
 createGrid(gridSize);
+sizeValue.textContent = "16x16";
 
 let brushToggle ='off' 
 gridContainer.addEventListener('click', () => {
@@ -115,4 +117,5 @@ function deleteGrid() {
 sizeInput.addEventListener('input', () => {
     deleteGrid();
     createGrid(sizeInput.value);
+    sizeValue.textContent = `${sizeInput.value}x${sizeInput.value}`
 })
