@@ -33,6 +33,7 @@ body {
     border: 1px solid #B6EADA;
     color: #B6EADA;
     font-size: 24px;
+    padding: 8px;
 }
 
 #content {
@@ -55,4 +56,6 @@ body {
 .gridBox {
     border: 1px solid #03001C;
 }
+
+
 
