@@ -2,7 +2,7 @@
     --colNum: 16;
 }
 
-* {
+* {    
     margin: 0;
     font-family: 'Roboto', sans-serif;
 }
@@ -13,12 +13,35 @@ body {
 
 #heading, #instructions {
     color: #B6EADA;
-    text-align: center;
-    margin: 1rem 0;
+    text-align: start;
+    margin: 1rem 2rem;
 }
 
 #instructions {
     font-size: 24px;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80vh;
+}
+
+.button {
+    background-color: transparent;
+    border: 1px solid #B6EADA;
+    color: #B6EADA;
+    font-size: 24px;
+}
+
+#content {
+    display: flex;
+    justify-content: flex-start;        
+    align-items: center;
+    gap: 10%;
+    margin: 0 2rem;
+    flex-wrap: wrap;
 }
 
 #gridContainer {
