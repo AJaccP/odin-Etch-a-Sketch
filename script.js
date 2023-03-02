@@ -8,6 +8,7 @@ const randomColorButton = document.querySelector('#randomColorButton');
 const rainbowButton = document.querySelector('#rainbowButton');
 const sizeInput = document.querySelector('#sizeInput');
 const sizeValue = document.querySelector('#sizeValue');
+const gridLinesButton = document.querySelector('#gridLinesButton');
 
 let gridSize = 16;
 
@@ -18,6 +19,13 @@ let brushToggle ='off'
 gridContainer.addEventListener('click', () => {
     brushToggle === 'off' ? brushToggle = 'on' : brushToggle = 'off'
 })
+
+let gridLines = 'off';
+gridLinesButton.addEventListener('click', () => {
+    gridLines === 'off' ? gridLines = 'on' : gridLines = 'off';
+})
+
+gridLinesButton.addEventListener('click', toggleGridLines);
 
 clearButton.addEventListener('click', clearGrid);
 
@@ -48,6 +56,19 @@ function createGrid(size) {
     root.style.setProperty('--colNum', size); 
     
     draw('#5B8FB9');
+}
+
+function toggleGridLines() { 
+    const gridBoxes = document.querySelectorAll('.gridBox');   
+    if (gridLines === 'on') {        
+        gridBoxes.forEach(gridBox => {
+            gridBox.style.border = 'solid 1px #03001C';
+        })
+    } else {
+        gridBoxes.forEach(gridBox => {
+            gridBox.style.border = 'none';
+        })
+    }
 }
 
 function draw(color) {
