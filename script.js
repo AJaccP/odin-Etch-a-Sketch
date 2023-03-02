@@ -101,6 +101,7 @@ function changeSize() {
     deleteGrid();
     createGrid(sizeInput.value);
     sizeValue.textContent = `${sizeInput.value}x${sizeInput.value}`;
+    toggleGridLines();
 }
 
 function greyscale() {
