@@ -11,6 +11,32 @@ const sizeValue = document.querySelector('#sizeValue');
 
 let gridSize = 16;
 
+createGrid(gridSize);
+sizeValue.textContent = "16x16";
+
+let brushToggle ='off' 
+gridContainer.addEventListener('click', () => {
+    brushToggle === 'off' ? brushToggle = 'on' : brushToggle = 'off'
+})
+
+clearButton.addEventListener('click', clearGrid);
+
+eraserButton.addEventListener('click', eraser);
+
+colorSelectInput.addEventListener('input', colorSelect);
+
+colorSelectButton.addEventListener('click', colorSelect);
+
+greyscaleButton.addEventListener('click', greyscale);
+
+rainbowButton.addEventListener('click', rainbow);
+
+randomColorButton.addEventListener('click', () => {
+    draw(randomColor());
+})
+
+sizeInput.addEventListener('input', changeSize);
+
 function createGrid(size) {
     for (let i = 0; i < Math.pow(size, 2); i++) {
         const gridBox = document.createElement('div');
@@ -23,14 +49,6 @@ function createGrid(size) {
     
     draw('#5B8FB9');
 }
-
-createGrid(gridSize);
-sizeValue.textContent = "16x16";
-
-let brushToggle ='off' 
-gridContainer.addEventListener('click', () => {
-    brushToggle === 'off' ? brushToggle = 'on' : brushToggle = 'off'
-})
 
 function draw(color) {
     const gridBoxes = document.querySelectorAll('.gridBox');
@@ -52,25 +70,19 @@ function clearGrid() {
     draw('#5B8FB9');
 }
 
-clearButton.addEventListener('click', clearGrid);
-
-function eraser() {
-    draw('#eeeeee');
+function deleteGrid() {
+    while (gridContainer.firstChild) {
+        gridContainer.removeChild(gridContainer.lastChild);
+    }
 }
 
-eraserButton.addEventListener('click', eraser);
+function changeSize() {
+    deleteGrid();
+    createGrid(sizeInput.value);
+    sizeValue.textContent = `${sizeInput.value}x${sizeInput.value}`;
+}
 
-colorSelectInput.addEventListener('input', () => {
-    const selectedColor = colorSelectInput.value;
-    draw(selectedColor);
-})
-
-colorSelectButton.addEventListener('click', () => {
-    const selectedColor = colorSelectInput.value;
-    draw(selectedColor); 
-})
-
-greyscaleButton.addEventListener('click', () => {
+function greyscale() {
     const gridBoxes = document.querySelectorAll('.gridBox');
     gridBoxes.forEach(gridBox => {        
         gridBox.opacity = 0.1;
@@ -81,7 +93,7 @@ greyscaleButton.addEventListener('click', () => {
             }
         }) 
     })
-})
+}
 
 function randomColor() {
     const redValue = Math.floor(Math.random() * 255);
@@ -92,7 +104,7 @@ function randomColor() {
     return color;
 }
 
-rainbowButton.addEventListener('click', () => {
+function rainbow() {
     const gridBoxes = document.querySelectorAll('.gridBox');
     gridBoxes.forEach(gridBox => {
         gridBox.addEventListener('mouseenter', () => {
@@ -101,21 +113,13 @@ rainbowButton.addEventListener('click', () => {
             }
         })
     })
-})
-
-
-randomColorButton.addEventListener('click', () => {
-    draw(randomColor());
-})
-
-function deleteGrid() {
-    while (gridContainer.firstChild) {
-        gridContainer.removeChild(gridContainer.lastChild);
-    }
 }
 
-sizeInput.addEventListener('input', () => {
-    deleteGrid();
-    createGrid(sizeInput.value);
-    sizeValue.textContent = `${sizeInput.value}x${sizeInput.value}`
-})
+function colorSelect() {
+    const selectedColor = colorSelectInput.value;
+    draw(selectedColor);
+}
+
+function eraser() {
+    draw('#eeeeee');
+}
